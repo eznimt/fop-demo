@@ -16,13 +16,13 @@ public class LatexTransformer {
             processBuilder.redirectErrorStream(true);
             Process process = processBuilder.start();
 
-//            InputStream inputStream = process.getInputStream();
-//            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-//            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//            String line;
-//            while((line = bufferedReader.readLine()) != null) {
-//                System.out.println(line);
-//            }
+            InputStream inputStream = process.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            while((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
             process.waitFor();
         } catch (IOException | InterruptedException e) {
             log.error("Could not transform LaTeX to PDF.");

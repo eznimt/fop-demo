@@ -49,7 +49,9 @@ public class Main {
         // LaTeX
         log.info("Starting with LaTeX");
         LatexTransformer latexTransformer = new LatexTransformer();
-        result = latexTransformer.transform(LATEX_SOURCE);
+        latexTransformer.transform(LATEX_SOURCE);
+        // run again to generate the toc
+        latexTransformer.transform(LATEX_SOURCE);
         log.info("LaTeX finished!");
     }
 

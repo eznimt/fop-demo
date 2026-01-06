@@ -1,46 +1,131 @@
-\documentclass[12pt]{article}
-\usepackage{lingmacros}
-\usepackage{tree-dvips}
+\documentclass[a4paper, 12pt]{scrartcl}
+% globale Variablen
+\newcommand{\doctitle}{Übungen zur Programmierung}
+\newcommand{\doctitleshort}{Programmierung}
+\newcommand{\theauthor}{Tobias Mintzlaff}
+\newcommand{\email}{}
+% Kopf- und Fusszeile
+\usepackage{pdfpages, fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+% Kopf links
+\fancyhead[L]{\doctitleshort}
+% Kopf rechts
+\fancyhead[R]{\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0,4pt}
+% Fuss links
+\fancyfoot[L]{\theauthor, 2026}
+% Fuss rechts
+\fancyfoot[R]{Seite \thepage}
+\renewcommand{\footrulewidth}{0,4pt}
+\addtolength{\headwidth}{-8mm}
+% schlampiger Absatz
+\sloppy
+\frenchspacing
+% Einruecken 1. Zeile des Absatz
+\setlength{\parindent}{0em}
+% Sonderzeichen
+%\usepackage[latin1]{inputenc} % Windows
+\usepackage[utf8]{inputenc} % Linux
+% Silbentrennung
+\usepackage[ngerman]{babel}
+% Umlaute ersetzen
+\usepackage[T1]{fontenc}
+% Seitenr�nder
+\usepackage[a4paper, left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+% Dokumenteigenschaften
+\usepackage[colorlinks=false,
+	pdfborder={0 0 0},
+	pdftitle={\doctitle},
+	pdfauthor={\theauthor},
+ 	pdfsubject={doctitleshort},
+ 	pdfcreator={LaTeX},
+ 	pdfproducer={Minze's TeX-Template 2.2}]{hyperref}
+\usepackage[official]{eurosym}
+\usepackage{pifont}
+\usepackage{comment}
+\newcommand{\zb}{z.\,B.~}
+\newcommand{\idr}{i.\,d.\,R.~}
+\newcommand{\e}{\,\euro{}}
+\newcommand{\qm}{\,m$^2$}
+\newcommand{\dahe}{d.\,h.~}
+\usepackage{graphicx}
+\usepackage{amsmath, longtable}
+\usepackage{listings}
+\usepackage{color, framed}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstset{style=mystyle}
 \begin{document}
+% ----- Verzeichnisse ----------------------------------------------------
+\newpage
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\section{Grundlagen}
+\subsection{Datentypen und Variablen}
+Bei Variablen handelt es sich um Speicherbereiche, in denen Werte gespeichert werden können, und der Datentyp gibt an, welche Werte erlaubt sind, \zb nur Ganzzahlen.
+In einem Programm werden Daten verarbeitet, die sich in ihrer Art unterscheiden, \zb Zeichen, Zahlen oder logische Daten.
 
-\section*{Notes for My Paper}
+Es gibt acht primitive Datentypen.
+\begin{itemize}
+	\item[-] ganzzahlige Typen: byte, short, int, long
+	\item[-] Gleitpunkttypen: float, double
+	\item[-] char
+	\item[-] boolean
+\end{itemize}
 
-Don't forget to include examples of topicalization.
-They look like this:
+\subsection{Wertebereiche}
+Warum gibt es mehrere numerische Datentypen?
+Welchen Datentyp kann man für die Zahl 96 verwenden?
+\subsection{Arrays}
+Ein Array ist ein Container\footnote{Das ist eine Fußnote}, der eine feste Anzahl von Werten eines einzelnen Datentyps enthält.
+Der Datentyp wird bei der Deklaration festgelegt und kann nicht mehr verändert werden.
+Ebenso wird die Länge festgelegt.
+\begin{lstlisting}[language=Java]
+	class Main {
+    public static void main(String[] args) {
+        // Array deklarieren mit dem Datentyp Integer
+        int[] myArray;
 
-{\small
-\enumsentence{Topicalization from sentential subject:\\
-\shortex{7}{a John$_i$ [a & kltukl & [el &
-  {\bf l-}oltoir & er & ngii$_i$ & a Mary]]}
-{ & {\bf R-}clear & {\sc comp} &
-  {\bf IR}.{\sc 3s}-love   & P & him & }
-{John, (it's) clear that Mary loves (him).}}
+        //Array besitzt einen Speicher fuer 4 Integer
+        myArray = new int[4];
+
+        // Array initialisieren mit den Werten: 33, 91, 27, 5
+        myArray[0] = 33;
+        myArray[1] = 91;
+        myArray[2] = 27;
+        myArray[3] = 5;
+
+        // Zugriff auf alle Werte des Arrays bzw. Ausgabe der Werte
+        System.out.println(myArray[0]);
+        System.out.println(myArray[1]);
+        System.out.println(myArray[2]);
+        System.out.println(myArray[3]);
+    }
 }
-
-\subsection*{How to handle topicalization}
-
-I'll just assume a tree structure like (\ex{1}).
-
-{\small
-\enumsentence{Structure of A$'$ Projections:\\ [2ex]
-\begin{tabular}[t]{cccc}
-    & \node{i}{CP}\\ [2ex]
-    \node{ii}{Spec} &   &\node{iii}{C$'$}\\ [2ex]
-        &\node{iv}{C} & & \node{v}{SAgrP}
-\end{tabular}
-\nodeconnect{i}{ii}
-\nodeconnect{i}{iii}
-\nodeconnect{iii}{iv}
-\nodeconnect{iii}{v}
-}
-}
-
-\subsection*{Mood}
-
-Mood changes when there is a topic, as well as when
-there is WH-movement.  \emph{Irrealis} is the mood when
-there is a non-subject topic or WH-phrase in Comp.
-\emph{Realis} is the mood when there is a subject topic
-or WH-phrase.
-
+\end{lstlisting}
 \end{document}

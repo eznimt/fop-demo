@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model type="application/xml"?>
+<document>
+    <body>
+        <title>Tabelle</title>
+        <content>Es folgt eine Tabelle mehrerer Länder</content>
+        <table>
+            <thead>
+                <tr>
+                    <th>Land</th>
+                    <th>Fläche (km²)</th>
+                    <th>Einwohnerzahl</th>
+                    <th>Hauptstadt</th>
+                    <th>Anzahl der Nachbarländer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Deutschland</td>
+                    <td>357.600</td>
+                    <td>84 Mio.</td>
+                    <td>Berlin</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Frankreich</td>
+                    <td>551.700</td>
+                    <td>65 Mio.</td>
+                    <td>Paris</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Italien</td>
+                    <td>301.300</td>
+                    <td>59 Mio.</td>
+                    <td>Rom</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Spanien</td>
+                    <td>505.900</td>
+                    <td>48 Mio.</td>
+                    <td>Madrid</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</document>

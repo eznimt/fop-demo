@@ -26,3 +26,4 @@ Es werden PDF-Dateien ins Verzeichnis "pdf" geschrieben, für Apache FOP und fü
 
 #### latex/01_document.tex
 
+* Auszug aus einem Dokument mit Inhaltsverzeichnis und Fußnoten
